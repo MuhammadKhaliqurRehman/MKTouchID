@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oJ0-ML-gQG">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="MKTouchID" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Need To Unlock With TouchID or Passcode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05r-lm-y6a">
+                                <rect key="frame" x="0.0" y="64" width="375" height="35"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="wGO-gR-ITO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="thz-Cs-13M">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="9yy-Jz-CXv">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9yy-Jz-CXv" id="1kw-kO-jdn">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="c1F-8o-LIH"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="RJM-c3-1GE"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="thz-Cs-13M" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="3rd-yh-tDK"/>
+                            <constraint firstItem="05r-lm-y6a" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="6Ui-yg-3sc"/>
+                            <constraint firstItem="05r-lm-y6a" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="HSj-Me-bik"/>
+                            <constraint firstItem="thz-Cs-13M" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="SzJ-aP-lqp"/>
+                            <constraint firstAttribute="trailing" secondItem="05r-lm-y6a" secondAttribute="trailing" id="YkK-vk-SE2"/>
+                            <constraint firstAttribute="trailing" secondItem="thz-Cs-13M" secondAttribute="trailing" id="fi5-hf-LMn"/>
+                            <constraint firstAttribute="bottom" secondItem="thz-Cs-13M" secondAttribute="bottom" id="tIy-bQ-oGt"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="WqE-Iu-9lZ">
+                        <barButtonItem key="leftBarButtonItem" title="Passcode" id="dqf-Ki-MGw">
+                            <connections>
+                                <action selector="passcodeButtonPressed:" destination="BYZ-38-t0r" id="fj2-0R-PMw"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="TouchID" id="JuH-gc-EFq">
+                            <connections>
+                                <action selector="touchIDButtonPressed:" destination="BYZ-38-t0r" id="Krm-BG-ldX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="passcodeButton" destination="dqf-Ki-MGw" id="ibs-KI-zEP"/>
+                        <outlet property="tableView" destination="thz-Cs-13M" id="eM4-TM-aiY"/>
+                        <outlet property="touchIDButton" destination="JuH-gc-EFq" id="8bD-Jq-yRv"/>
+                        <outlet property="warningLabel" destination="05r-lm-y6a" id="Rag-kB-7nT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="864.79999999999995" y="-544.67766116941539"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="b6O-kQ-Lhe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oJ0-ML-gQG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EdJ-ui-EVX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="6Km-wz-AZB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gZ3-YZ-QDO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="116" y="-543.77811094452773"/>
+        </scene>
+    </scenes>
+</document>
